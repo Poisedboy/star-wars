@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import Preloader from './components/Preloader/Preloader';
+import Main from './components/Main/Main';
+import Error from './components/Error';
+import PeoplePage from './components/PeoplePage/PeoplePage';
 
 function App() {
+  const chapter = useLocation();
+  console.log(chapter);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Main />}/> 
+      <Route path='/people' element={<PeoplePage />} />
+      <Route path='*' element={<Error />}/>
+    </Routes>
   );
 }
 
