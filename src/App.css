@@ -1,11 +1,38 @@
+.btn {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
 .White {
   height: 100vh;
-  color: black
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Black {
   height: 100vh;
   background-color: #282c34;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navPanel {
+  width: 1040px;
+  padding: 5px;
+  height: 35px;
+  background-color: black;
+  border-radius: 0 0 20px 20px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.content {
+  padding: 5px 3px 0 3px;
+  width: 940px;
 }

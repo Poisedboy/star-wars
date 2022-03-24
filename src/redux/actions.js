@@ -1,4 +1,4 @@
-import {SET_DATA, BLACK_THEME, WHITE_THEME} from './types';
+import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA} from './types';
 import useAPI from '../api/useApi';
 
 export const blackTheme = () => {
@@ -11,7 +11,7 @@ export const whiteTheme = () => {
     return {
         type: WHITE_THEME
     }
-}
+};
 
 export const setData = (data) => {
     return {
@@ -20,8 +20,21 @@ export const setData = (data) => {
     }
 };
 
-export const requestData = () => async (dispatch) => {
-    const {requestPeople} = useAPI();
-    const data = await requestPeople();
+export const setPicture = (picture) => {
+    return {
+        type: SET_PICTURE,
+        payload: picture
+    }
+};
+
+export const requestData = ({category, id}) => async (dispatch) => {
+    const {requestInfo} = useAPI();
+    const data = await requestInfo({category, id});
     return dispatch(setData(data));
+};
+
+export const requestPicture = ({category, number}) => async (dispatch) => {
+    const {requestPicture} = useAPI();
+    const picture = await requestPicture({category, number});
+    return dispatch(setPicture(picture));
 };

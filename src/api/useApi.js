@@ -2,30 +2,34 @@ import * as axios from 'axios';
 
 const useAPI = () => {
 
-    const requestPeople = async (url) => {
+    const requestInfo = async ({category, id}) => {
         try {
-            const data = await axios.get('https://swapi.dev/api/people/');
-            return data.data.results;
+            const getData = await axios.get(`https://swapi.dev/api/${category}/${id}/`);
+            const response = getData.data;
+            return response;
         } catch(e) {
             console.log('Error: ', e)
         } finally {
-            console.log('request has done');
+            console.log('Request info has done');
         }
     };
 
-    const requestFilms = async () => {
+    const requestPicture = async ({category, number}) => {
         try {
-            const data = await axios.get('https://swapi.dev/api/films');
-        } catch (e) {
-
+            const fetchUrl = await axios.get(`https://starwars-visualguide.com/assets/img/${category}/${number}.jpg`);
+            const response = fetchUrl.config.url;
+            console.log(response);
+            return response;
+        } catch(e) {
+            console.log('Picture error ', e);
         } finally {
-            console.log('request films has done');
-        }
+            console.log('Request picture has done');
+        };
     }
 
     return {
-        requestPeople,
-        requestFilms,
+        requestPicture,
+        requestInfo
     };
 };
 

@@ -1,8 +1,8 @@
-import {SET_DATA, BLACK_THEME, WHITE_THEME} from './types';
+import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA} from './types';
 
 let initialState = {
-    data: [],
     item: {},
+    picture: '',
     isBlackTheme: false
 };
 
@@ -18,11 +18,16 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 isBlackTheme: false
             };
+        case SET_PICTURE: 
+            return {
+                ...state,
+                picture: action.payload
+            };
         case SET_DATA:
             return {
                 ...state,
-                data: action.payload
-            }
+                item: action.payload
+            };
         default:
             return state;
     }
