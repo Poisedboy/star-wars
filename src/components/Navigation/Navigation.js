@@ -1,9 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
-import './navigation.css';
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-    const url = useLocation();
-    console.log(url);
     return(
         <ul className="nav">
             <li><Link to='/'>Main</Link></li>
@@ -11,6 +8,7 @@ const Navigation = () => {
             <li><Link to='/people'>People</Link></li>
             <li><Link to='/planets'>Planets</Link></li>
             <li><Link to='/starships'>Starships</Link></li>
+            <li><Link to='/vehicles'>Vehicles</Link></li>
         </ul>
     )
 }

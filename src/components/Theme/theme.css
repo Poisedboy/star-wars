@@ -1,0 +1,39 @@
+.White {
+    height: 100%;
+    color: black;
+}
+
+.Black {
+    height: 100%;
+    color: azure;
+    background-color: #282c34;
+}
+
+.Black .Main {
+    height: 97vh;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navPanel {
+    padding: 5px;
+    background-color: azure;
+    border-radius: 0 0 15px 15px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.navPanel ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+

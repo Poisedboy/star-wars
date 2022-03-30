@@ -6,24 +6,27 @@ const useAPI = () => {
         try {
             const getData = await axios.get(`https://swapi.dev/api/${category}/${id}/`);
             const response = getData.data;
-            return response;
-        } catch(e) {
-            console.log('Error: ', e)
+            return {
+                name: response.name,
+                birth: response.birth_year,
+                gender: response.gender
+            };
+        } catch(e) { 
+            console.log(e.message);
         } finally {
-            console.log('Request info has done');
+            console.log('GET info');
         }
     };
 
     const requestPicture = async ({category, number}) => {
         try {
-            const fetchUrl = await axios.get(`https://starwars-visualguide.com/assets/img/${category}/${number}.jpg`);
-            const response = fetchUrl.config.url;
-            console.log(response);
+            const getPicture = await axios.get(`https://starwars-visualguide.com/assets/img/${category}/${number}.jpg`);
+            const response = getPicture.config.url;
             return response;
         } catch(e) {
-            console.log('Picture error ', e);
+            console.log(e.message);
         } finally {
-            console.log('Request picture has done');
+            console.log('GET picture');
         };
     }
 

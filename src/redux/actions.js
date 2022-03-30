@@ -1,4 +1,4 @@
-import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA} from './types';
+import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA, SET_ERROR, CANCEL_ERROR} from './types';
 import useAPI from '../api/useApi';
 
 export const blackTheme = () => {
@@ -10,7 +10,20 @@ export const blackTheme = () => {
 export const whiteTheme = () => {
     return {
         type: WHITE_THEME
-    }
+    };
+};
+
+export const setError = (text) => {
+    return {
+        type: SET_ERROR,
+        payload: text
+    };
+};
+
+export const cancelError = () => {
+    return {
+        type: CANCEL_ERROR
+    };
 };
 
 export const setData = (data) => {
@@ -30,6 +43,9 @@ export const setPicture = (picture) => {
 export const requestData = ({category, id}) => async (dispatch) => {
     const {requestInfo} = useAPI();
     const data = await requestInfo({category, id});
+    if(data === undefined) {
+        return dispatch(setError('There are no data on server!'));
+    }
     return dispatch(setData(data));
 };
 

@@ -1,9 +1,11 @@
-import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA} from './types';
+import { BLACK_THEME, WHITE_THEME, SET_PICTURE, SET_DATA, SET_ERROR, CANCEL_ERROR} from './types';
 
 let initialState = {
     item: {},
     picture: '',
-    isBlackTheme: false
+    isError: false,
+    errorMessage: '',
+    isBlackTheme: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -18,6 +20,18 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 isBlackTheme: false
             };
+        case SET_ERROR:
+            return {
+                ...state,
+                isError: true,
+                errorMessage: action.payload
+            };
+        case CANCEL_ERROR: 
+            return {
+                ...state,
+                isError: false,
+                errorMessage: ''
+            } 
         case SET_PICTURE: 
             return {
                 ...state,
