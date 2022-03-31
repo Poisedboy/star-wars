@@ -9,10 +9,6 @@
     background-color: #282c34;
 }
 
-.Black .Main {
-    height: 97vh;
-}
-
 .body {
     display: flex;
     justify-content: center;
@@ -22,7 +18,7 @@
 
 .navPanel {
     padding: 5px;
-    background-color: azure;
+    background-color: whitesmoke;
     border-radius: 0 0 15px 15px;
     width: 90%;
     display: grid;
@@ -36,4 +32,22 @@
     justify-content: space-around;
 }
 
+.content {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
+.content > * {
+    margin: 10px;
+}
+
+.image {
+    text-align: center;
+    height: 75vh;
+}
+
+.image img {
+    height: inherit;
+    border-radius: 10px;
+}

@@ -6,11 +6,23 @@ const useAPI = () => {
         try {
             const getData = await axios.get(`https://swapi.dev/api/${category}/${id}/`);
             const response = getData.data;
-            return {
-                name: response.name,
-                birth: response.birth_year,
-                gender: response.gender
-            };
+            console.log(response);
+            if(category === 'people') {
+                return {
+                    name: response.name,
+                    birth: response.birth_year,
+                    gender: response.gender
+                };
+            } else if (category === 'films') {
+                return {
+                    title: response.title,
+                    director: response.director,
+                    producer: response.producer,
+                    release_date: response.release_date,
+                    opening_crawl: response.opening_crawl
+                }
+            }
+            
         } catch(e) { 
             console.log(e.message);
         } finally {

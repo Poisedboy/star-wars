@@ -27,23 +27,20 @@ const PeoplePage = () => {
     };
 
     return (
-        <div>
+        <div className='content'>
+            <div className='image'>
+                {isError ? <Error/> : <img src={picture} alt='character' />}
+            </div>
+            <div className='info'>
+                {isError ? <Error/> : Object.keys(data).map(item => {
+                    if(item === 'name') {
+                        return <h1>{`${item}: ${data[item]}`}</h1>
+                    } else {
+                        return <h2>{`${item}: ${data[item]}`}</h2>
+                    };             
+                })}
+            </div>
             <button onClick={prevClickHandler}>previous</button>
-            {isError ? <Error /> 
-                : <div>
-                    <img src={picture} alt='character' />
-                    
-                    <div>
-                        {Object.keys(data).map(item => {
-                            if(item === 'name') {
-                                return <h1>{`${item}: ${data[item]}`}</h1>
-                            } else {
-                                return <h2>{`${item}: ${data[item]}`}</h2>
-                            };             
-                        })}
-                    </div>
-                </div>
-            }
             <button onClick={nextClickHandler}>next</button>
         </div>
     );
