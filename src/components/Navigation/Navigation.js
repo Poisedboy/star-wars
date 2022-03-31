@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
     return(
         <ul className="nav">
-            <li><Link to='/'>Main</Link></li>
-            <li><Link to='/films'>Films</Link></li>
-            <li><Link to='/people'>People</Link></li>
-            <li><Link to='/planets'>Planets</Link></li>
-            <li><Link to='/starships'>Starships</Link></li>
-            <li><Link to='/vehicles'>Vehicles</Link></li>
+            <li><Link to='/star-wars/'>Main</Link></li>
+            <li><Link to='/star-wars/films'>Films</Link></li>
+            <li><Link to='/star-wars/people'>People</Link></li>
+            <li><Link to='/star-wars/planets'>Planets</Link></li>
+            <li><Link to='/star-wars/starships'>Starships</Link></li>
+            <li><Link to='/star-wars/vehicles'>Vehicles</Link></li>
         </ul>
     )
 }

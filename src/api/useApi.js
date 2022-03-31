@@ -7,22 +7,27 @@ const useAPI = () => {
             const getData = await axios.get(`https://swapi.dev/api/${category}/${id}/`);
             const response = getData.data;
             console.log(response);
-            if(category === 'people') {
-                return {
-                    name: response.name,
-                    birth: response.birth_year,
-                    gender: response.gender
-                };
-            } else if (category === 'films') {
-                return {
-                    title: response.title,
-                    director: response.director,
-                    producer: response.producer,
-                    release_date: response.release_date,
-                    opening_crawl: response.opening_crawl
-                }
-            }
             
+            switch(category) {
+                case 'people':
+                    return {
+                        name: response.name,
+                        birth: response.birth_year,
+                        gender: response.gender
+                    };
+                case 'films':
+                    return {
+                        title: response.title,
+                        director: response.director,
+                        producer: response.producer,
+                        release_date: response.release_date,
+                        opening_crawl: response.opening_crawl
+                    };
+                default:
+                    return {
+                        default: 'Def-title, no data'
+                    };
+            };            
         } catch(e) { 
             console.log(e.message);
         } finally {

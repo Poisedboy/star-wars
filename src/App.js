@@ -13,12 +13,12 @@ function App() {
   return (
     <Theme>
       <Routes>
-        <Route path='/' element={<Main />}/> 
-        <Route path='/films' element={<FilmsPage />} />
-        <Route path='/people' element={<PeoplePage />} />
-        <Route path='/planets' element={<Planets />} />
-        <Route path='/starships' element={<Starships />} />
-        <Route path='/vehicles' element={<Vehicles />} />
+        <Route path='/star-wars/' element={<Main />}/> 
+        <Route path='/star-wars/films' element={<FilmsPage />} />
+        <Route path='/star-wars/people' element={<PeoplePage />} />
+        <Route path='/star-wars/planets' element={<Planets />} />
+        <Route path='/star-wars/starships' element={<Starships />} />
+        <Route path='/star-wars/vehicles' element={<Vehicles />} />
         <Route path='*' element={<Error />}/>
       </Routes>
     </Theme>
