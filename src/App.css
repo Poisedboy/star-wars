@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a, h1, h2, h3, button {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button {
+  margin: 0 5px 0 5px;
+  border: none;
+  border-radius: 10px;
+  background: lightgrey; 
+  transition: background .3s ease-in-out;
+}
+
+button:hover {
+  background: #F7BC05;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F7BC05;
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
