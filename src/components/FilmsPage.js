@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { requestData, requestPicture, cancelError } from "../redux/actions";
-import Error from "./Error";
+import { requestData, requestPicture } from "../redux/actions";
+import Error from "./Errors/Error";
 
 const FilmsPage = () => {
 
     const data = useSelector(state => state.item);
     const picture = useSelector(state => state.picture);
     const isError = useSelector(state => state.isError);
+    const errorPictureText = useSelector(state => state.errorPictureText);
+    const errorText = useSelector(state => state.errorMessage);
 
     const dispatch = useDispatch();
     const [count, setCount] = useState(1);
@@ -18,21 +20,19 @@ const FilmsPage = () => {
     }, [dispatch, count]);
 
     const nextClickHandler = () => {
-        dispatch(cancelError());
         setCount(prevState => prevState + 1);
     };
     const prevClickHandler = () => {
-        dispatch(cancelError());
         setCount(prevState => prevState - 1);
     };
     console.log(data);
     return (
         <div className='content'>
             <div className='image'>
-                {isError ? <Error/> : <img src={picture} alt='character' />}
+                {isError ? <Error text={errorPictureText} /> : <img src={picture} alt='character' />}
             </div>
             <div className='info'>
-                {isError ? <Error/> : Object.keys(data).map(item => {
+                {isError ? <Error text={errorText} /> : Object.keys(data).map(item => {
                     if(item === 'title') {
                         return <h1>{`${item}: ${data[item]}`}</h1>
                     } else if (item === 'opening_crawl'){
