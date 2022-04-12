@@ -25,7 +25,7 @@ const Theme = (props) => {
             onClick={themeHandler}
             className='btn'  
           >
-            {isBlack ? 'Night' : 'Day'}
+            {isBlack ? '✹' : '✹'}
           </button>
         </div>
         {props.children}
