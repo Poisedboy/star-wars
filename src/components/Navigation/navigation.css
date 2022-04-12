@@ -101,4 +101,8 @@
     .hamb {
         display: none;
     }
+
+    h1 {
+        font-size: 3.3em;
+    }
 }

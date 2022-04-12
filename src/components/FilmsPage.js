@@ -34,11 +34,11 @@ const FilmsPage = () => {
             <div className='info'>
                 {isError ? <Error text={errorText} /> : Object.keys(data).map(item => {
                     if(item === 'title') {
-                        return <h1>{`${item}: ${data[item]}`}</h1>
+                        return <h3>{`${item}: ${data[item]}`}</h3>
                     } else if (item === 'opening_crawl'){
                         return <p>{`${item}: ${data[item]}`}</p>
                     } else {
-                        return <h2>{`${item}: ${data[item]}`}</h2>
+                        return <h4>{`${item}: ${data[item]}`}</h4>
                     };             
                 })}
             </div>

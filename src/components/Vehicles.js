@@ -37,9 +37,9 @@ const Vehicles = () => {
             <div className='info'>
                 {isError ? <Error text={errorText} /> : Object.keys(data).map(item => {
                     if(item === 'name') {
-                        return <h1>{`${item}: ${data[item]}`}</h1>
+                        return <h3>{`${item}: ${data[item]}`}</h3>
                     } else {
-                        return <h2>{`${item}: ${data[item]}`}</h2>
+                        return <h4>{`${item}: ${data[item]}`}</h4>
                     };             
                 })}
             </div>
