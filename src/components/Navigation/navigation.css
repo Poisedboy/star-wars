@@ -1,6 +1,8 @@
 .header {
+    padding: 20px 30px;
     position: sticky;
     top: 0;
+    background-color: whitesmoke;
 }
 
 .logo {
@@ -80,7 +82,7 @@
 }
 
 .side-menu:checked ~ .hamb .hamb-line::after {
-    rotate: rotate(45deg);
+    transform: rotate(45deg);
     top: 0;
 }
 
